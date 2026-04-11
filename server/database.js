@@ -3,12 +3,12 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 const dns = require('dns');
 
 try {
-  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']); // block to handle potential errors like Exited status 1 or something mostly the dns of the wifi (if else fails try turning off and connect to your mobile hotspot).
 } catch (error) {
   // Ignore error if setServers fails
 }
 
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/todosdb";
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/todosdb"; 
 
 const options = {
   serverApi: {
